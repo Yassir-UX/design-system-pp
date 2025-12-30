@@ -114,9 +114,16 @@ const labelVariants = cva(
   }
 )
 
+type LabelColor = "brand" | "gray" | "blue" | "success" | "error" | "warning" | "indigo" | "purple" | "pink" | "cyan" | "teal" | "orange"
+
 export interface LabelProps
-  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>,
-    VariantProps<typeof labelVariants> {
+  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'> {
+  /** Color variant */
+  color?: LabelColor | null
+  /** Size variant */
+  size?: "sm" | "md" | "lg" | null
+  /** Outline variant */
+  outline?: boolean | null
   /** Icon displayed before the label text */
   iconStart?: React.ReactNode
   /** Icon displayed after the label text */
