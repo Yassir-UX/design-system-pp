@@ -1,17 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/storybook",
-      "destination": "/storybook/index.html"
-    },
-    {
-      "source": "/storybook/(.*)",
-      "destination": "/storybook/$1"
-    },
-    {
-      "source": "/((?!storybook).*)",
+      "source": "/((?!storybook|api|_next|assets|.*\\..*).*)",
       "destination": "/index.html"
     }
   ]
 }
-
