@@ -17,13 +17,6 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
-  viteFinal: async (config) => {
-    // Set base path for production deployment at /storybook/
-    if (process.env.NODE_ENV === 'production') {
-      config.base = '/storybook/';
-    }
-    return config;
-  },
 };
 
 export default config;
