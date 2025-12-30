@@ -115,7 +115,7 @@ const labelVariants = cva(
 )
 
 export interface LabelProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
+  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'>,
     VariantProps<typeof labelVariants> {
   /** Icon displayed before the label text */
   iconStart?: React.ReactNode

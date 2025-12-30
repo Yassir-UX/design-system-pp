@@ -1,8 +1,9 @@
 import { cn } from '@/lib/utils';
 import React, { useEffect, useId } from 'react';
-import { Avatar } from './avatar';
+import { Avatar, AvatarImage, AvatarFallback } from './avatar';
 import { Shortcut } from './shortcut';
 import { useShortcuts, type ShortcutAction } from '@/lib/shortcuts';
+import { User01 } from '@untitledui/icons';
 
 interface NavItemProps {
   /** The label text for the nav item */
@@ -90,11 +91,12 @@ export function NavItem({
     >
       {showAvatar ? (
         // Avatar variant using Avatar component
-        <Avatar 
-          size="xs" 
-          src={avatarUrl} 
-          alt={label}
-        />
+        <Avatar size="xs">
+          {avatarUrl && <AvatarImage src={avatarUrl} alt={label} />}
+          <AvatarFallback>
+            <User01 size={12} />
+          </AvatarFallback>
+        </Avatar>
       ) : (
         // Icon variant
         <div className="shrink-0 size-[19px] flex items-center justify-center">

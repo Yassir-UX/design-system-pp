@@ -389,7 +389,7 @@ const BorderlessInput = React.forwardRef<
     ref
   ) => {
     const [internalValue, setInternalValue] = React.useState(defaultValue)
-    const contentEditableRef = React.useRef<HTMLDivElement>(null)
+    const contentEditableRef = React.useRef<HTMLDivElement | null>(null)
     
     // Use controlled or uncontrolled value
     const currentValue = value !== undefined ? value : internalValue
