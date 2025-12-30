@@ -1,0 +1,272 @@
+# Design System Rules
+
+This project uses a design token system. **Always use tokens instead of hardcoded values.**
+
+## Colors
+
+Use colors from `src/tokens.json`. Never use hardcoded hex colors.
+
+### Brand Colors
+- Primary: `brand-500` (#43389B)
+- Hover: `brand-600` (#362D7C)
+- Active: `brand-700` (#28225D)
+
+### Gray Cool (UI Colors)
+- `gray-cool-25` to `gray-cool-950`
+- Text primary: `gray-cool-900` (#111322)
+- Text secondary: `gray-cool-700` (#404968)
+- Text tertiary: `gray-cool-600` (#4A5578)
+- Border: `gray-cool-100` (#E9EBF1), `gray-cool-200` (#DCDFEA)
+- Background hover: `gray-cool-50` (#F6F6F9)
+
+### Semantic Colors
+- Error: `error-500` (#F04438), `error-600` (#D92D20)
+- Warning: `warning-500` (#F79009), `warning-600` (#DC6803)
+- Success: `success-500` (#17B26A), `success-600` (#079455)
+
+### Background Colors
+Use tokens from `colors.background`:
+- `bg-primary` (#FFFFFF)
+- `bg-primary-hover` (#F6F6F9)
+- `bg-secondary` (#F6F6F9)
+- `bg-disabled` (#E9EBF1)
+
+### Text Colors
+Use tokens from `colors.text`:
+- `text-primary-900` (#111322)
+- `text-secondary-700` (#404968)
+- `text-disabled` (#5D6B98)
+- `text-placeholder` (#7D89B0)
+
+## Spacing
+
+Always use spacing tokens from `src/tokens.json`:
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `none` | 0px | No spacing |
+| `xxs` | 2px | Minimal spacing |
+| `xs` | 4px | Small gaps, small padding |
+| `sm` | 6px | Small spacing |
+| `md` | 8px | Medium spacing |
+| `lg` | 12px | Large spacing |
+| `xl` | 16px | Extra large spacing |
+| `2xl` | 20px | Section spacing |
+| `3xl` | 24px | Large section spacing |
+| `4xl` | 32px | Major spacing |
+
+### Button Specific Spacing
+- Gap sm/md buttons: `xs` (4px)
+- Gap lg buttons: `sm` (6px)
+- Horizontal padding sm/md: `lg-14px` (14px)
+- Horizontal padding lg: `xl` (16px)
+
+## Border Radius
+
+Always use radius tokens:
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `none` | 0px | No radius |
+| `xxs` | 2px | Minimal radius |
+| `xs` | 4px | Small elements, badges, shortcuts |
+| `sm` | 6px | Small components |
+| `md` | 8px | Buttons, cards, inputs |
+| `lg` | 10px | Larger cards |
+| `xl` | 12px | Modals |
+| `2xl` | 16px | Large containers |
+| `full` | 9999px | Pills, avatars |
+
+## Shadows
+
+Use the skeuomorphic shadow pattern from Figma:
+
+```css
+/* Primary/Destructive buttons */
+shadow-[0_1px_2px_0_rgba(10,13,18,0.05)]
+after:shadow-[inset_0_0_0_1px_rgba(125,137,176,0.2),inset_0_-2px_0_0_rgba(64,73,104,0.1)]
+
+/* Secondary buttons */
+shadow-[inset_0_0_0_1px_rgba(125,137,176,0.2),inset_0_-2px_0_0_rgba(64,73,104,0.1),0_1px_2px_0_rgba(10,13,18,0.05)]
+
+/* Disabled state */
+shadow-[0_1px_2px_0_rgba(10,13,18,0.05)]
+```
+
+## Typography
+
+Always use typography tokens from `src/tokens.json`. Never use arbitrary font values.
+
+### Font Family
+| Token | Value | Usage |
+|-------|-------|-------|
+| `font-family-display` | Inter | Headings, display text |
+| `font-family-body` | Inter | Body text, UI elements |
+
+### Font Weight
+| Token | Value | CSS Weight | Usage |
+|-------|-------|------------|-------|
+| `regular` | Regular | 400 | Body text, labels |
+| `medium` | Medium | 500 | Buttons, emphasis |
+| `semibold` | Semibold | 600 | Strong emphasis |
+| `bold` | Bold | 700 | Headings, important |
+
+### Font Size (Text)
+| Token | Size | Line Height | Usage |
+|-------|------|-------------|-------|
+| `text-2xs` | 10px | 14px | Tiny labels, avatar initials (xs) |
+| `text-xxs` | 11px | 16px | Very small labels, avatar initials (sm), kbd hints |
+| `text-xs` | 12px | 18px | Small labels, captions, shortcuts |
+| `text-sm` | 14px | 20px | Body text, buttons (sm/md) |
+| `text-md` | 16px | 24px | Large buttons, body |
+| `text-lg` | 18px | 28px | Subheadings |
+| `text-xl` | 20px | 30px | Section titles |
+
+### Font Size (Display)
+| Token | Size | Line Height | Usage |
+|-------|------|-------------|-------|
+| `display-xs` | 24px | 32px | Small headings |
+| `display-sm` | 30px | 38px | Section headings |
+| `display-md` | 36px | 44px | Page headings |
+| `display-lg` | 48px | 60px | Hero headings |
+| `display-xl` | 60px | 72px | Large hero text |
+| `display-2xl` | 72px | 90px | Extra large display |
+
+### Typography in Tailwind
+```css
+/* Use typography token classes (include line-height automatically) */
+text-2xs     /* 10px/14px */
+text-xxs     /* 11px/16px */
+text-xs      /* 12px/18px */
+text-sm      /* 14px/20px */
+text-md      /* 16px/24px */
+text-lg      /* 18px/28px */
+text-xl      /* 20px/30px */
+text-display-xs   /* 24px/32px */
+text-display-sm   /* 30px/38px */
+text-display-md   /* 36px/44px */
+text-display-lg   /* 48px/60px */
+text-display-xl   /* 60px/72px */
+text-display-2xl  /* 72px/90px */
+
+/* Font families */
+font-display  /* Inter - for headings */
+font-body     /* Inter - for body text */
+
+/* Font weights */
+font-normal   /* 400 - regular */
+font-medium   /* 500 - medium */
+font-semibold /* 600 - semibold */
+font-bold     /* 700 - bold */
+```
+
+### Important: Line Heights Are Included
+When using `text-xs`, `text-sm`, etc., the line-height is **automatically included** from the Tailwind config. Do NOT add explicit `leading-[Xpx]` classes unless overriding.
+
+## Icons
+
+**Always use Untitled UI Icons** for all icons in the project.
+
+### Package
+- Package: `@untitledui/icons`
+- Documentation: https://github.com/untitleduico/icons
+- Style: Stroke-based (outline) icons
+
+### Usage
+```tsx
+import { ArrowRight, Plus, Check, XClose } from '@untitledui/icons';
+
+// In components
+<ArrowRight size={20} />
+<Plus size={16} />
+
+// With Button component
+<Button iconStart={<ArrowRight size={20} />}>Continue</Button>
+<Button iconEnd={<Check size={20} />}>Confirm</Button>
+```
+
+### Icon Sizes
+| Context | Size | Usage |
+|---------|------|-------|
+| Small buttons | 16px | `size={16}` |
+| Medium buttons | 20px | `size={20}` |
+| Large buttons | 20px | `size={20}` |
+| Standalone icons | 24px | `size={24}` |
+
+### Common Icons
+- Navigation: `ArrowRight`, `ArrowLeft`, `ArrowUp`, `ArrowDown`, `ChevronRight`, `ChevronDown`
+- Actions: `Plus`, `Minus`, `Check`, `XClose`, `Edit`, `Trash`
+- UI: `Search`, `Menu`, `Settings`, `User`, `Home`
+- Files: `File`, `Folder`, `Download`, `Upload`, `Copy`
+- Communication: `Mail`, `Bell`, `MessageSquare`
+
+### DO NOT
+❌ Use other icon libraries (Heroicons, Lucide, FontAwesome, etc.)
+❌ Create custom SVG icons without checking Untitled UI first
+❌ Use different icon sizes within the same context
+
+### DO
+✅ Always import from `@untitledui/icons`
+✅ Use consistent sizes based on context
+✅ Pass icons as React nodes to component props
+
+## Component Patterns
+
+### Buttons
+- Always use the `Button` component from `src/components/ui/button.tsx`
+- Use variant props: `primary`, `secondary-gray`, `tertiary-gray`, `link-gray`, `link-color`, `destructive`
+- Use size props: `sm` (36px), `md` (40px), `lg` (44px), `icon`
+- Support icons via `iconStart` and `iconEnd` props (use Untitled UI Icons)
+- Support keyboard shortcuts via `shortcut` prop
+
+### Shortcuts
+- Use the `Shortcut` component from `src/components/ui/shortcut.tsx`
+- Use `theme="dark"` for primary/destructive buttons
+- Use `theme="light"` for secondary/tertiary buttons
+
+## DO NOT
+
+❌ Use hardcoded hex colors like `#43389B` - use token references
+❌ Use arbitrary pixel values for spacing - use spacing tokens
+❌ Use arbitrary border-radius values - use radius tokens
+❌ Use arbitrary font sizes like `text-[10px]` or `text-[14px]` - use typography tokens (`text-2xs`, `text-sm`, etc.)
+❌ Use explicit `leading-[Xpx]` with token font sizes - line-height is already included
+❌ Create new color values without adding to tokens
+❌ Use `opacity` for disabled states - use proper disabled color tokens
+❌ Use icon libraries other than Untitled UI Icons
+❌ Create custom SVG icons without checking Untitled UI first
+
+## DO
+
+✅ Reference tokens from `src/tokens.json`
+✅ Use semantic color names (e.g., `text-primary`, `bg-disabled`)
+✅ Use consistent spacing scale
+✅ Use typography tokens for all text
+✅ Follow the component API patterns
+✅ Use Tailwind classes with token values
+✅ Keep disabled states using proper tokens, not opacity
+✅ Use Untitled UI Icons (`@untitledui/icons`) for all icons
+
+## File Structure
+
+```
+src/
+├── components/
+│   └── ui/
+│       ├── button.tsx      # Button component
+│       ├── shortcut.tsx    # Shortcut badge component
+│       └── *.stories.tsx   # Storybook stories
+├── lib/
+│   └── utils.ts            # cn() utility
+└── tokens.json             # Design tokens
+```
+
+## Adding New Components
+
+1. Create component in `src/components/ui/`
+2. Use `cva` for variant-based styling
+3. Use `cn()` for class merging
+4. Reference tokens for all colors, spacing, radius
+5. Create corresponding `.stories.tsx` file
+6. Export from component file
+
